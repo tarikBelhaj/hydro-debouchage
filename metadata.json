@@ -1,0 +1,7 @@
+{
+  "name": "Hydro Débouchage Wallonie",
+  "description": "Site web haute conversion pour services de débouchage en Belgique (Wallonie). Optimisé pour Google Ads avec localisation dynamique et assistant IA.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
