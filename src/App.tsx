@@ -47,10 +47,10 @@ const App = () => {
 
     if (!formRef.current) return;
 
-    // REMPLACEZ CES VALEURS PAR LES VÔTRES DEPUIS EMAILJS
-    const SERVICE_ID = 'YOUR_SERVICE_ID';
-    const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-    const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+    // infos EMAILJS pour formulaire
+    const SERVICE_ID = 'service_gvbzqad';
+    const TEMPLATE_ID = 'kssgw4m';
+    const PUBLIC_KEY = '0bUrBm2nXDsBPxsGc';
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
       publicKey: PUBLIC_KEY,
