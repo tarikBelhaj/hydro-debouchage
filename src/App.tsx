@@ -24,6 +24,11 @@ const App = () => {
   
   const formRef = useRef<HTMLFormElement>(null);
 
+  // Initialiser EmailJS au chargement
+  useEffect(() => {
+    emailjs.init('0bUrBm2nXDsBPxsGc');
+  }, []);
+
   // Detection du mode Landing Page via URL (ex: ?city=Namur)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -50,11 +55,8 @@ const App = () => {
     // infos EMAILJS pour formulaire
     const SERVICE_ID = 'service_gvbzqad';
     const TEMPLATE_ID = 'kssgw4m';
-    const PUBLIC_KEY = '0bUrBm2nXDsBPxsGc';
 
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
-      publicKey: PUBLIC_KEY,
-    })
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current)
     .then(() => {
       setFormStatus('success');
       // Reset after 5 seconds
