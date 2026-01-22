@@ -13,7 +13,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { CITIES, SERVICES, TESTIMONIALS, COMPANY_PHONE } from './constants';
-import AIChatAssistant from './components/AIChatAssistant';
+// import AIChatAssistant from './components/AIChatAssistant';
 import StickyCallBtn from './components/StickyCallBtn';
 
 const App = () => {
@@ -462,7 +462,7 @@ const App = () => {
                     {isLandingPageMode ? (
                        <input 
                          name="user_city"
-                         readOnly // Use readOnly instead of disabled for form submission
+                         readOnly
                          value={`${selectedCity.name} (${selectedCity.zip})`}
                          className="w-full bg-slate-100 border border-slate-200 text-slate-500 rounded-lg px-4 py-3 cursor-not-allowed"
                        />
@@ -557,7 +557,7 @@ const App = () => {
 
       {/* Floating Elements */}
       <StickyCallBtn />
-      <AIChatAssistant currentCity={selectedCity.name} agentName={selectedCity.agentName} key={selectedCity.name} />
+      {/* <AIChatAssistant currentCity={selectedCity.name} agentName={selectedCity.agentName} key={selectedCity.name} /> */}
       
     </div>
   );
