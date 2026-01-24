@@ -54,7 +54,7 @@ const App = () => {
 
     // infos EMAILJS pour formulaire
     const SERVICE_ID = 'service_gvbzqad';
-    const TEMPLATE_ID = 'kssgw4m';
+    const TEMPLATE_ID = 'template_9k0kdvc';
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current)
     .then(() => {
