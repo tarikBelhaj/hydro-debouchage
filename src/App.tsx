@@ -623,7 +623,6 @@ const App = () => {
               <li><a href="#" className="hover:text-white">Débouchage WC</a></li>
               <li><a href="#" className="hover:text-white">Curage égouts</a></li>
               <li><a href="#" className="hover:text-white">Inspection caméra</a></li>
-              <li><a href="#" className="hover:text-white">Vidange fosse septique</a></li>
             </ul>
           </div>
           <div>
