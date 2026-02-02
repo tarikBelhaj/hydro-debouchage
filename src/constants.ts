@@ -109,4 +109,4 @@ export const TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-export const COMPANY_PHONE = "0470 12 34 56";
+export const COMPANY_PHONE = "0478 50 50 50";
