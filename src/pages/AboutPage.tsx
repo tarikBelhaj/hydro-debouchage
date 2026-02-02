@@ -19,7 +19,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
             <span className="text-blue-600">au service de la Wallonie</span>
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
-            Fondée sur des valeurs de transparence et d'efficacité, HydroClean est devenue la référence du débouchage haute pression. Nous traitons chaque intervention comme si c'était chez nous : avec soin, propreté et rapidité.
+            Fondée sur des valeurs de transparence et d'efficacité, Hydro Debouchage est devenue la référence du débouchage haute pression. Nous traitons chaque intervention comme si c'était chez nous : avec soin, propreté et rapidité.
           </p>
         </div>
 
