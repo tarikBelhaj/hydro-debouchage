@@ -639,6 +639,9 @@ const App = () => {
                 <li><a href="#" className="hover:text-white">Namur</a></li>
                 <li><a href="#" className="hover:text-white">Charleroi</a></li>
                 <li><a href="#" className="hover:text-white">Mons</a></li>
+                <li><a href="#" className="hover:text-white">Verviers</a></li>
+                <li><a href="#" className="hover:text-white">Arlon</a></li>
+                <li><a href="#" className="hover:text-white">Uccle</a></li>
               </ul>
             )}
           </div>
