@@ -30,13 +30,41 @@ export const CITIES: City[] = [
     neighborhoods: ['Jemappes', 'Cuesmes', 'Nimy', 'Ghlin', 'Havré', 'Maisières'],
     agentName: 'Sophie'
   },
-  { name: 'La Louvière', zip: '7100', region: 'Hainaut', agentName: 'Thomas' },
-  { name: 'Tournai', zip: '7500', region: 'Hainaut', agentName: 'Julien' },
-  { name: 'Wavre', zip: '1300', region: 'Brabant wallon', agentName: 'Nicolas' },
-  { name: 'Verviers', zip: '4800', region: 'Liège', agentName: 'Luc' },
-  { name: 'Arlon', zip: '6700', region: 'Luxembourg', agentName: 'Sarah' },
-  { name: 'Bastogne', zip: '6600', region: 'Luxembourg', agentName: 'Pierre' },
-  { name: 'Dinant', zip: '5500', region: 'Namur', agentName: 'Antoine' },
+  { 
+    name: 'La Louvière', 
+    zip: '7100', 
+    region: 'Hainaut',
+    neighborhoods: ['Houdeng', 'Maurage', 'Saint-Vaast', 'Trivières', 'Haine-Saint-Paul', 'Centre-ville'],
+    agentName: 'Thomas'
+  },
+  { 
+    name: 'Tournai', 
+    zip: '7500', 
+    region: 'Hainaut',
+    neighborhoods: ['Centre-ville', 'Kain', 'Froyennes', 'Maulde', 'Willemeau', 'Templeuve'],
+    agentName: 'Julien'
+  },
+  { 
+    name: 'Wavre', 
+    zip: '1300', 
+    region: 'Brabant wallon',
+    neighborhoods: ['Centre-ville', 'Bierges', 'Limal', 'Basse-Wavre', 'Haute-Wavre'],
+    agentName: 'Nicolas'
+  },
+  { 
+    name: 'Nivelles', 
+    zip: '1400', 
+    region: 'Brabant wallon',
+    neighborhoods: ['Centre-ville', 'Baulers', 'Thines', 'Bornival', 'Monstreux'],
+    agentName: 'David'
+  },
+  { 
+    name: 'Arlon', 
+    zip: '6700', 
+    region: 'Luxembourg',
+    neighborhoods: ['Centre-ville', 'Bonnert', 'Heinsch', 'Toernich', 'Sterpenich'],
+    agentName: 'Sarah'
+  }
 ];
 
 export const SERVICES: Service[] = [
@@ -90,7 +118,7 @@ export const TESTIMONIALS: Testimonial[] = [
     id: 2,
     name: 'Marie Laurent',
     location: 'Namur',
-    text: 'Très satisfaite. Mon évier était complètement bloqué, ils ont utilisé la haute pression et tout est rentré dans l’ordre.',
+    text: 'Très satisfaite. Mon évier était complètement bloqué, ils ont utilisé la haute pression et tout est rentré dans l\'ordre.',
     rating: 5,
   },
   {
@@ -105,6 +133,20 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Sophie Renard',
     location: 'Mons',
     text: 'Rapide et efficace. Le technicien connaissait bien le quartier et est arrivé très vite.',
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: 'Thomas Leroy',
+    location: 'Tournai',
+    text: 'Appelé pour un WC bouché un samedi après-midi. Arrivé en 30 minutes, problème réglé en 15 minutes. Tarif correct.',
+    rating: 5,
+  },
+  {
+    id: 6,
+    name: 'Caroline Petit',
+    location: 'Wavre',
+    text: 'Canalisations bouchées au sous-sol. Diagnostic rapide avec caméra, curage efficace. Très pro.',
     rating: 5,
   },
 ];

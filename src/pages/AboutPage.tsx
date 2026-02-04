@@ -1,12 +1,18 @@
 import React from 'react';
-import { ShieldCheck, Users, Trophy, Target, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ShieldCheck, Users, Target, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { COMPANY_PHONE } from '../constants';
 
-interface AboutPageProps {
-  onContactClick: () => void;
-}
+const AboutPage = () => {
+  const navigate = useNavigate();
 
-const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
+  const handleContactClick = () => {
+    navigate('/');
+    setTimeout(() => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
   return (
     <div className="pt-10 pb-20 animate-in fade-in duration-500">
       
@@ -19,14 +25,14 @@ const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
             <span className="text-blue-600">au service de la Wallonie</span>
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
-            Fondée sur des valeurs de transparence et d'efficacité, Hydro Debouchage est devenue la référence du débouchage haute pression. Nous traitons chaque intervention comme si c'était chez nous : avec soin, propreté et rapidité.
+            Fondée sur des valeurs de transparence et d'efficacité, Hydro Débouchage est devenue la référence du débouchage haute pression. Nous traitons chaque intervention comme si c'était chez nous : avec soin, propreté et rapidité.
           </p>
         </div>
 
         <div className="relative rounded-3xl overflow-hidden shadow-2xl h-64 md:h-96">
           <img 
             src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&q=80&w=2000" 
-            alt="Équipe technique HydroClean" 
+            alt="Équipe technique" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-8">
@@ -75,7 +81,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Transparence Totale</h3>
                   <p className="text-slate-600">
-                    Pas de surprise sur la facture. Nos tarifs sont annoncés avant l'intervention. Si le problème est plus complexe, nous vous informons immédiatement.
+                    Pas de surprise sur la facture. Nos tarifs sont annoncés avant l'intervention.
                   </p>
                 </div>
               </div>
@@ -87,7 +93,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Résultat Garanti</h3>
                   <p className="text-slate-600">
-                    Nous ne partons pas tant que l'écoulement n'est pas rétabli. Notre matériel haute pression (400 bars) vient à bout des bouchons les plus tenaces.
+                    Nous ne partons pas tant que l'écoulement n'est pas rétabli. Matériel haute pression 400 bars.
                   </p>
                 </div>
               </div>
@@ -99,7 +105,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Respect des lieux</h3>
                   <p className="text-slate-600">
-                    C'est notre marque de fabrique. Nos techniciens protègent la zone d'intervention et nettoient systématiquement après leur passage.
+                    Nos techniciens protègent la zone d'intervention et nettoient après leur passage.
                   </p>
                 </div>
               </div>
@@ -111,9 +117,9 @@ const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
              <ul className="space-y-4">
                {[
                  "Agrément pour intervention assurance",
-                 "Véhicules hydrocureurs < 3.5t (accès partout)",
+                 "Véhicules hydrocureurs < 3.5t",
                  "Matériel d'inspection vidéo HD",
-                 "Techniciens locaux salariés (pas de sous-traitance)",
+                 "Techniciens locaux salariés",
                  "Devis gratuit par téléphone",
                  "Intervention 24h/24 et 7j/7"
                ].map((item, idx) => (
@@ -138,10 +144,10 @@ const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
         <div className="bg-blue-600 rounded-3xl p-8 md:p-12 text-center text-white shadow-xl shadow-blue-600/20">
           <h2 className="text-3xl font-bold mb-4">Besoin d'une intervention rapide ?</h2>
           <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
-            Nos équipes sont prêtes à intervenir. Contactez-nous maintenant pour un devis gratuit et immédiat.
+            Nos équipes sont prêtes à intervenir. Contactez-nous maintenant pour un devis gratuit.
           </p>
           <button 
-            onClick={onContactClick}
+            onClick={handleContactClick}
             className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-colors inline-flex items-center gap-2"
           >
             Contacter un technicien <ArrowRight className="w-5 h-5" />
