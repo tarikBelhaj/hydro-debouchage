@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { CITIES, SERVICES, TESTIMONIALS, COMPANY_PHONE } from '../constants';
 import StickyCallBtn from '../components/StickyCallBtn';
+import BeforeAfter from '../components/BeforeAfter';
 
 const HomePage = () => {
   const location = useLocation();
@@ -200,6 +201,25 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* AVANT/APRÈS */}
+       <section className="py-20 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+        Résultats Garantis
+      </h2>
+      <p className="text-slate-600 max-w-2xl mx-auto">
+        Nos interventions haute pression permettent de déboucher efficacement vos canalisations. Voyez la différence !
+      </p>
+    </div>
+    <BeforeAfter 
+      beforeImage="/images/avant.png"
+      afterImage="/images/apres.png"
+      beforeLabel="Avant"
+      afterLabel="Après"
+    />
+  </div>
+      </section>
       {/* CTA STRIP */}
       <section className="bg-blue-900 text-white py-12">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
