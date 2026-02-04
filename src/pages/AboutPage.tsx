@@ -30,11 +30,11 @@ const AboutPage = () => {
         </div>
 
         <div className="relative rounded-3xl overflow-hidden shadow-2xl h-64 md:h-96">
-          <img 
-            src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&q=80&w=2000" 
-            alt="Équipe technique" 
-            className="w-full h-full object-cover"
-          />
+        <img 
+  src="/images/camions-depot.png" 
+  alt="Camions Hydro Débouchage au dépôt" 
+  className="w-full h-full object-cover"
+/>
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-8">
             <div className="text-white">
               <div className="text-2xl font-bold">Une équipe certifiée</div>
