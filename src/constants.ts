@@ -7,63 +7,81 @@ export const CITIES: City[] = [
     zip: '4000', 
     region: 'Liège',
     neighborhoods: ['Guillemins', 'Outremeuse', 'Saint-Léonard', 'Angleur', 'Grivegnée', 'Rocourt', 'Bressoux', 'Sclessin'],
-    agentName: 'Max'
+    agentName: 'Max',
+    localDescription: 'Nos équipes interviennent régulièrement à Liège, notamment dans les quartiers historiques du centre-ville et autour de la gare des Guillemins. Nous connaissons parfaitement les spécificités du réseau d\'assainissement liégeois.',
+    avgResponseTime: '30-45 min'
   },
   { 
     name: 'Namur', 
     zip: '5000', 
     region: 'Namur',
     neighborhoods: ['Jambes', 'Salzinnes', 'Saint-Servais', 'Bouge', 'Erpent', 'Wépion', 'Belgrade'],
-    agentName: 'Laurent'
+    agentName: 'Laurent',
+    localDescription: 'À Namur, capitale wallonne, nous intervenons rapidement dans tous les quartiers, du centre historique aux communes périphériques comme Jambes et Saint-Servais.',
+    avgResponseTime: '30-45 min'
   },
   { 
     name: 'Charleroi', 
     zip: '6000', 
     region: 'Hainaut',
     neighborhoods: ['Gosselies', 'Marchienne', 'Jumet', 'Gilly', 'Montignies', 'Marcinelle', 'Couillet'],
-    agentName: 'Karim'
+    agentName: 'Karim',
+    localDescription: 'Notre présence permanente à Charleroi nous permet d\'intervenir en urgence dans toute la métropole, de Gosselies à Marcinelle.',
+    avgResponseTime: '30-45 min'
   },
   { 
     name: 'Mons', 
     zip: '7000', 
     region: 'Hainaut',
     neighborhoods: ['Jemappes', 'Cuesmes', 'Nimy', 'Ghlin', 'Havré', 'Maisières'],
-    agentName: 'Sophie'
+    agentName: 'Sophie',
+    localDescription: 'Basés à Mons, nous couvrons l\'ensemble de la région montoise, du centre-ville historique aux villages périphériques.',
+    avgResponseTime: '30-45 min'
   },
   { 
     name: 'La Louvière', 
     zip: '7100', 
     region: 'Hainaut',
     neighborhoods: ['Houdeng', 'Maurage', 'Saint-Vaast', 'Trivières', 'Haine-Saint-Paul', 'Centre-ville'],
-    agentName: 'Thomas'
+    agentName: 'Thomas',
+    localDescription: 'À La Louvière, nous intervenons quotidiennement dans tous les quartiers, avec une expertise particulière des installations du Centre.',
+    avgResponseTime: '30-45 min'
   },
   { 
     name: 'Tournai', 
     zip: '7500', 
     region: 'Hainaut',
     neighborhoods: ['Centre-ville', 'Kain', 'Froyennes', 'Maulde', 'Willemeau', 'Templeuve'],
-    agentName: 'Julien'
+    agentName: 'Julien',
+    localDescription: 'Notre équipe tournaisienne connaît parfaitement le réseau de la plus ancienne ville de Belgique et intervient dans toute l\'agglomération.',
+    avgResponseTime: '30-45 min'
   },
   { 
     name: 'Wavre', 
     zip: '1300', 
     region: 'Brabant wallon',
     neighborhoods: ['Centre-ville', 'Bierges', 'Limal', 'Basse-Wavre', 'Haute-Wavre'],
-    agentName: 'Nicolas'
+    agentName: 'Nicolas',
+    localDescription: 'Présents à Wavre et dans tout le Brabant wallon, nous intervenons rapidement dans les zones résidentielles et commerciales.',
+    avgResponseTime: '30-45 min'
   },
   { 
     name: 'Nivelles', 
     zip: '1400', 
     region: 'Brabant wallon',
     neighborhoods: ['Centre-ville', 'Baulers', 'Thines', 'Bornival', 'Monstreux'],
-    agentName: 'David'
+    agentName: 'David',
+    localDescription: 'À Nivelles, nous couvrons le centre historique et tous les villages environnants avec une grande réactivité.',
+    avgResponseTime: '30-45 min'
   },
   { 
     name: 'Arlon', 
     zip: '6700', 
     region: 'Luxembourg',
     neighborhoods: ['Centre-ville', 'Bonnert', 'Heinsch', 'Toernich', 'Sterpenich'],
-    agentName: 'Sarah'
+    agentName: 'Sarah',
+    localDescription: 'Dans la province du Luxembourg, notre base d\'Arlon nous permet d\'intervenir rapidement dans toute la région frontalière.',
+    avgResponseTime: '35-50 min'
   }
 ];
 

@@ -283,6 +283,52 @@ const CityPage = () => {
           </div>
         </div>
       </section>
+      {/* BLOC SEO LOCAL */}
+{selectedCity.localDescription && (
+  <section className="py-16 bg-white">
+    <div className="container mx-auto px-4">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+          Débouchage professionnel à {selectedCity.name}
+        </h2>
+        
+        <div className="bg-slate-50 rounded-2xl p-8 shadow-sm border border-slate-200">
+          <p className="text-slate-700 leading-relaxed mb-6">
+            {selectedCity.localDescription}
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-200">
+            <div>
+              <div className="text-sm text-slate-500 mb-1">Ville</div>
+              <div className="font-bold text-slate-900">{selectedCity.name}</div>
+            </div>
+            <div>
+              <div className="text-sm text-slate-500 mb-1">Code postal</div>
+              <div className="font-bold text-slate-900">{selectedCity.zip}</div>
+            </div>
+            <div>
+              <div className="text-sm text-slate-500 mb-1">Délai moyen</div>
+              <div className="font-bold text-slate-900">{selectedCity.avgResponseTime}</div>
+            </div>
+          </div>
+          
+          {selectedCity.neighborhoods && selectedCity.neighborhoods.length > 0 && (
+            <div className="mt-6 pt-6 border-t border-slate-200">
+              <div className="text-sm text-slate-500 mb-3">Quartiers couverts</div>
+              <div className="flex flex-wrap gap-2">
+                {selectedCity.neighborhoods.map((hood) => (
+                  <span key={hood} className="bg-blue-50 text-blue-700 text-sm px-3 py-1 rounded-full">
+                    {hood}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
 
       {/* CONTACT FORM */}
       <section id="contact" className="py-20 bg-slate-900 text-white relative">
@@ -376,12 +422,15 @@ const CityPage = () => {
                     </select>
                   </div>
                   <button 
-                    type="submit" 
-                    disabled={formStatus === 'submitting'}
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg transition-transform transform active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
-                  >
-                    {formStatus === 'submitting' ? 'Envoi en cours...' : `Appeler ${selectedCity.name} maintenant`}
-                  </button>
+  type="submit" 
+  disabled={formStatus === 'submitting'}
+  className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg transition-transform transform active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
+>
+  {formStatus === 'submitting' ? 'Envoi en cours...' : 'Être rappelé immédiatement'}
+</button>
+<p className="text-xs text-slate-500 text-center mt-3">
+  🔒 Données confidentielles – aucun spam
+</p>
                 </form>
               )}
             </div>

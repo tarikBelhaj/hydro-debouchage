@@ -19,6 +19,8 @@ export interface City {
   region: string;
   neighborhoods?: string[];
   agentName?: string;
+  localDescription?: string;  // 🔥 NOUVEAU
+  avgResponseTime?: string;   // 🔥 NOUVEAU
 }
 
 export enum ChatSender {

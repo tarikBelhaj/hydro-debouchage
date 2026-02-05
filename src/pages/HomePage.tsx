@@ -202,7 +202,7 @@ const HomePage = () => {
       </section>
 
       {/* AVANT/APRÈS */}
-       <section className="py-20 bg-white">
+<section className="py-20 bg-white">
   <div className="container mx-auto px-4">
     <div className="text-center mb-16">
       <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
@@ -218,8 +218,22 @@ const HomePage = () => {
       beforeLabel="Avant"
       afterLabel="Après"
     />
+    
+    {/* 🔥 NOUVEAU CTA */}
+    <div className="text-center mt-12 max-w-2xl mx-auto">
+      <a 
+        href={`tel:${COMPANY_PHONE.replace(/\s/g, '')}`}
+        className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-transform transform hover:-translate-y-1"
+      >
+        <Phone className="w-6 h-6" />
+        Appeler maintenant – intervention immédiate à {selectedCity.name}
+      </a>
+      <p className="text-sm text-slate-500 mt-3">
+        Diagnostic gratuit – aucun engagement
+      </p>
+    </div>
   </div>
-      </section>
+</section>
       {/* CTA STRIP */}
       <section className="bg-blue-900 text-white py-12">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
@@ -238,81 +252,166 @@ const HomePage = () => {
       </section>
 
       {/* LOCATION & SOCIAL PROOF */}
-      <section id="avis" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-16">
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl font-extrabold mb-10 text-slate-900">Avis clients {selectedCity.name}</h2>
-              <div className="space-y-6">
-                {sortedTestimonials.slice(0, 3).map((t) => (
-                  <div key={t.id} className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <div className="flex items-center gap-1 text-yellow-400 mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className={`w-4 h-4 ${i < t.rating ? 'fill-current' : 'text-gray-300'}`} />
-                      ))}
-                    </div>
-                    <p className="text-slate-700 italic mb-4">"{t.text}"</p>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="font-bold text-slate-900">{t.name}</span>
-                      <span className="text-slate-500 flex items-center gap-1">
-                        <MapPin className="w-3 h-3" /> {t.location}
-                      </span>
-                    </div>
-                  </div>
+<section id="avis" className="py-20 bg-white">
+  <div className="container mx-auto px-4">
+    {/* 🔥 NOUVEAU : Résumé avis */}
+    <div className="text-center mb-6">
+      <p className="text-slate-600 text-lg flex items-center justify-center gap-2">
+        <span className="text-yellow-400 text-2xl">⭐⭐⭐⭐⭐</span>
+        <span className="font-bold text-slate-900">4,8/5</span>
+        <span className="text-slate-400">•</span>
+        <span>+300 interventions en Wallonie</span>
+      </p>
+    </div>
+    
+    {/* Titre */}
+    <h2 className="text-3xl font-extrabold mb-10 text-slate-900 text-center">
+      Avis clients {selectedCity.name}
+    </h2>
+
+    {/*  NOUVEAU : Photo cliente satisfaite */}
+    <div className="max-w-5xl mx-auto mb-16">
+      <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+        <img 
+          src="/images/cliente-satisfaite.png" 
+          alt="Cliente satisfaite avec technicien Hydro Débouchage"
+          className="w-full h-auto object-cover"
+        />
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 to-transparent p-8">
+          <div className="flex items-center gap-4 mb-3">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
+            ))}
+          </div>
+          <p className="text-white text-xl md:text-2xl font-bold italic mb-2">
+            &quot;Service impeccable ! Le technicien était très professionnel et a réglé mon problème rapidement.&quot;
+          </p>
+          <p className="text-slate-300">
+            — Cliente satisfaite, {selectedCity.name}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Reste de la section (avis + carte) */}
+    <div className="flex flex-col lg:flex-row gap-16">
+      <div className="lg:w-1/2">
+        <div className="space-y-6">
+          {sortedTestimonials.slice(0, 3).map((t) => (
+            <div key={t.id} className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+              <div className="flex items-center gap-1 text-yellow-400 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className={`w-4 h-4 ${i < t.rating ? 'fill-current' : 'text-gray-300'}`} />
                 ))}
               </div>
-            </div>
-
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl font-extrabold mb-6 text-slate-900">
-                {isLandingPageMode ? `Intervention à ${selectedCity.name} et quartiers` : `Zone d'intervention`}
-              </h2>
-              <p className="mb-6 text-slate-600">
-                Nous couvrons tout {selectedCity.name} ({selectedCity.zip}) et arrivons généralement en moins de 30 minutes.
-              </p>
-              <div className="bg-slate-200 w-full h-80 rounded-2xl flex items-center justify-center relative overflow-hidden group mb-6">
-                <div className="absolute inset-0 bg-[url('https://picsum.photos/800/600?grayscale')] bg-cover opacity-50 mix-blend-multiply"></div>
-                <div className="relative z-10 bg-white p-4 rounded-xl shadow-lg flex items-center gap-3">
-                  <div className="bg-red-500 text-white p-2 rounded-full animate-bounce">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-slate-900">Équipe technique {selectedCity.name}</div>
-                    <div className="text-xs text-green-600 font-bold">Statut : En service</div>
-                  </div>
-                </div>
+              <p className="text-slate-700 italic mb-4">&quot;{t.text}&quot;</p>
+              <div className="flex items-center justify-between text-sm">
+                <span className="font-bold text-slate-900">{t.name}</span>
+                <span className="text-slate-500 flex items-center gap-1">
+                  <MapPin className="w-3 h-3" /> {t.location}
+                </span>
               </div>
-              
-              {isLandingPageMode && selectedCity.neighborhoods ? (
-                <div>
-                  <h4 className="font-bold text-slate-900 mb-3">Nous intervenons dans tous les quartiers :</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedCity.neighborhoods.map((hood: string) => (
-                      <span key={hood} className="bg-slate-100 text-slate-600 text-sm px-3 py-1 rounded-full border border-slate-200">
-                        {hood}
-                      </span>
-                    ))}
-                    <span className="bg-slate-100 text-slate-600 text-sm px-3 py-1 rounded-full border border-slate-200">
-                      Centre-ville
-                    </span>
-                    <span className="bg-slate-100 text-slate-600 text-sm px-3 py-1 rounded-full border border-slate-200">
-                      Périphérie
-                    </span>
-                  </div>
-                </div>
-              ) : (
-                <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-slate-500 font-medium">
-                  {CITIES.slice(0, 8).map((c: any) => (
-                    <div key={c.name} className="flex items-center gap-1 hover:text-blue-600 cursor-pointer" onClick={() => setSelectedCity(c)}>
-                      <CheckCircle2 className="w-3 h-3 text-green-500" /> {c.name}
-                    </div>
-                  ))}
-                </div>
-              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="lg:w-1/2">
+        <h2 className="text-3xl font-extrabold mb-6 text-slate-900">
+          {isLandingPageMode ? `Intervention à ${selectedCity.name} et quartiers` : `Zone d'intervention`}
+        </h2>
+        <p className="mb-6 text-slate-600">
+          Nous couvrons tout {selectedCity.name} ({selectedCity.zip}) et arrivons généralement en moins de 30 minutes.
+        </p>
+        <div className="bg-slate-200 w-full h-80 rounded-2xl flex items-center justify-center relative overflow-hidden group mb-6">
+          <div className="absolute inset-0 bg-[url('https://picsum.photos/800/600?grayscale')] bg-cover opacity-50 mix-blend-multiply"></div>
+          <div className="relative z-10 bg-white p-4 rounded-xl shadow-lg flex items-center gap-3">
+            <div className="bg-red-500 text-white p-2 rounded-full animate-bounce">
+              <MapPin className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="font-bold text-slate-900">Équipe technique {selectedCity.name}</div>
+              <div className="text-xs text-green-600 font-bold">Statut : En service</div>
             </div>
           </div>
         </div>
-      </section>
+        
+        {isLandingPageMode && selectedCity.neighborhoods ? (
+          <div>
+            <h4 className="font-bold text-slate-900 mb-3">Nous intervenons dans tous les quartiers :</h4>
+            <div className="flex flex-wrap gap-2">
+              {selectedCity.neighborhoods.map((hood: string) => (
+                <span key={hood} className="bg-slate-100 text-slate-600 text-sm px-3 py-1 rounded-full border border-slate-200">
+                  {hood}
+                </span>
+              ))}
+              <span className="bg-slate-100 text-slate-600 text-sm px-3 py-1 rounded-full border border-slate-200">
+                Centre-ville
+              </span>
+              <span className="bg-slate-100 text-slate-600 text-sm px-3 py-1 rounded-full border border-slate-200">
+                Périphérie
+              </span>
+            </div>
+          </div>
+        ) : (
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-slate-500 font-medium">
+            {CITIES.slice(0, 8).map((c: any) => (
+              <div key={c.name} className="flex items-center gap-1 hover:text-blue-600 cursor-pointer" onClick={() => setSelectedCity(c)}>
+                <CheckCircle2 className="w-3 h-3 text-green-500" /> {c.name}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+    {/* BLOC SEO LOCAL */}
+{selectedCity.localDescription && (
+  <section className="py-16 bg-slate-50">
+    <div className="container mx-auto px-4">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+          Débouchage professionnel à {selectedCity.name}
+        </h2>
+        
+        <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+          <p className="text-slate-700 leading-relaxed mb-6">
+            {selectedCity.localDescription}
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-200">
+            <div>
+              <div className="text-sm text-slate-500 mb-1">Ville</div>
+              <div className="font-bold text-slate-900">{selectedCity.name}</div>
+            </div>
+            <div>
+              <div className="text-sm text-slate-500 mb-1">Code postal</div>
+              <div className="font-bold text-slate-900">{selectedCity.zip}</div>
+            </div>
+            <div>
+              <div className="text-sm text-slate-500 mb-1">Délai moyen</div>
+              <div className="font-bold text-slate-900">{selectedCity.avgResponseTime}</div>
+            </div>
+          </div>
+          
+          {selectedCity.neighborhoods && selectedCity.neighborhoods.length > 0 && (
+            <div className="mt-6 pt-6 border-t border-slate-200">
+              <div className="text-sm text-slate-500 mb-3">Quartiers couverts</div>
+              <div className="flex flex-wrap gap-2">
+                {selectedCity.neighborhoods.slice(0, 6).map((hood) => (
+                  <span key={hood} className="bg-slate-100 text-slate-700 text-sm px-3 py-1 rounded-full">
+                    {hood}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
 
       {/* CONTACT FORM */}
       <section id="contact" className="py-20 bg-slate-900 text-white relative">
