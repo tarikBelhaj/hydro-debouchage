@@ -258,20 +258,57 @@ const CityPage = () => {
       </section>
 
       {/* AVIS */}
-      <section id="avis" className="py-20 bg-slate-50">
+      <section id="avis" className="py-20 bg-white">
         <div className="container mx-auto px-4">
+          {/* 🔥 NOUVEAU : Résumé avis */}
+          <div className="text-center mb-6">
+            <p className="text-slate-600 text-lg flex items-center justify-center gap-2">
+              <span className="text-yellow-400 text-2xl">⭐⭐⭐⭐⭐</span>
+              <span className="font-bold text-slate-900">4,8/5</span>
+              <span className="text-slate-400">•</span>
+              <span>+300 interventions en Wallonie</span>
+            </p>
+          </div>
+          
+          {/* Titre */}
           <h2 className="text-3xl font-extrabold mb-10 text-slate-900 text-center">
             Avis clients {selectedCity.name}
           </h2>
+
+          {/* 🔥 NOUVEAU : Photo cliente satisfaite */}
+          <div className="max-w-5xl mx-auto mb-16">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src="/images/cliente-satisfaite.png" 
+                alt="Cliente satisfaite avec technicien Hydro Débouchage"
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 to-transparent p-8">
+                <div className="flex items-center gap-4 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-white text-xl md:text-2xl font-bold italic mb-2">
+                  &quot;Service impeccable ! Le technicien était très professionnel et a réglé mon problème rapidement.&quot;
+                </p>
+                <p className="text-slate-300">
+                  — Cliente satisfaite, {selectedCity.name}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Grille d'avis */}
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {sortedTestimonials.slice(0, 3).map((t) => (
-              <div key={t.id} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+              <div key={t.id} className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                 <div className="flex items-center gap-1 text-yellow-400 mb-3">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className={`w-4 h-4 ${i < t.rating ? 'fill-current' : 'text-gray-300'}`} />
                   ))}
                 </div>
-                <p className="text-slate-700 italic mb-4">"{t.text}"</p>
+                <p className="text-slate-700 italic mb-4">&quot;{t.text}&quot;</p>
                 <div className="flex items-center justify-between text-sm">
                   <span className="font-bold text-slate-900">{t.name}</span>
                   <span className="text-slate-500 flex items-center gap-1">
