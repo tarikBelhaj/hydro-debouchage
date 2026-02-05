@@ -370,43 +370,57 @@ const HomePage = () => {
 {selectedCity.localDescription && (
   <section className="py-16 bg-slate-50">
     <div className="container mx-auto px-4">
-      <div className="max-w-4xl mx-auto">
-      <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
-  Débouchage professionnel {isLandingPageMode ? `à ${selectedCity.name}` : 'en Wallonie'}
-</h2>
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8">
+          Débouchage professionnel {isLandingPageMode ? `à ${selectedCity.name}` : 'en Wallonie'}
+        </h2>
         
-        <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
-          <p className="text-slate-700 leading-relaxed mb-6">
-            {selectedCity.localDescription}
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-200">
-            <div>
-              <div className="text-sm text-slate-500 mb-1">Ville</div>
-              <div className="font-bold text-slate-900">{selectedCity.name}</div>
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div className="flex flex-col md:flex-row">
+            {/* IMAGE CAMION - Gauche */}
+            <div className="md:w-2/5 bg-gradient-to-br from-blue-50 to-slate-100 flex items-center justify-center p-8">
+              <img 
+                src="/images/camions-intervention.png" 
+                alt="Camion Hydro Débouchage en intervention"
+                className="w-full h-auto object-contain rounded-xl shadow-lg"
+              />
             </div>
-            <div>
-              <div className="text-sm text-slate-500 mb-1">Code postal</div>
-              <div className="font-bold text-slate-900">{selectedCity.zip}</div>
-            </div>
-            <div>
-              <div className="text-sm text-slate-500 mb-1">Délai moyen</div>
-              <div className="font-bold text-slate-900">{selectedCity.avgResponseTime}</div>
+            
+            {/* TEXTE - Droite */}
+            <div className="md:w-3/5 p-8">
+              <p className="text-slate-700 leading-relaxed mb-6">
+                {selectedCity.localDescription}
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-slate-200">
+                <div>
+                  <div className="text-sm text-slate-500 mb-1">Ville</div>
+                  <div className="font-bold text-slate-900">{selectedCity.name}</div>
+                </div>
+                <div>
+                  <div className="text-sm text-slate-500 mb-1">Code postal</div>
+                  <div className="font-bold text-slate-900">{selectedCity.zip}</div>
+                </div>
+                <div>
+                  <div className="text-sm text-slate-500 mb-1">Délai moyen</div>
+                  <div className="font-bold text-slate-900">{selectedCity.avgResponseTime}</div>
+                </div>
+              </div>
+              
+              {selectedCity.neighborhoods && selectedCity.neighborhoods.length > 0 && (
+                <div className="mt-6 pt-6 border-t border-slate-200">
+                  <div className="text-sm text-slate-500 mb-3">Quartiers couverts</div>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedCity.neighborhoods.slice(0, 6).map((hood) => (
+                      <span key={hood} className="bg-slate-100 text-slate-700 text-sm px-3 py-1 rounded-full">
+                        {hood}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-          
-          {selectedCity.neighborhoods && selectedCity.neighborhoods.length > 0 && (
-            <div className="mt-6 pt-6 border-t border-slate-200">
-              <div className="text-sm text-slate-500 mb-3">Quartiers couverts</div>
-              <div className="flex flex-wrap gap-2">
-                {selectedCity.neighborhoods.slice(0, 6).map((hood) => (
-                  <span key={hood} className="bg-slate-100 text-slate-700 text-sm px-3 py-1 rounded-full">
-                    {hood}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
