@@ -100,13 +100,13 @@ const HomePage = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                 </span>
-                Techniciens disponibles maintenant à {selectedCity.name}
+                Techniciens disponibles maintenant {isLandingPageMode ? `à ${selectedCity.name}` : 'en Wallonie'}
               </div>
               
               <h2 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
                 Débouchage urgent <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-                  à {selectedCity.name}
+                  {isLandingPageMode ? `à ${selectedCity.name}` : 'en Wallonie'}
                 </span>
               </h2>
               
@@ -120,7 +120,7 @@ const HomePage = () => {
                   className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-green-900/20 transition-transform transform hover:-translate-y-1 flex items-center justify-center gap-3"
                 >
                   <Phone className="w-6 h-6" />
-                  Appeler {selectedCity.name}
+                  {isLandingPageMode ? `Appeler ${selectedCity.name}` : 'Appeler maintenant'}
                 </a>
                 <a 
                   href="#contact"
@@ -134,7 +134,7 @@ const HomePage = () => {
             <div className="w-full md:w-[450px]">
               <div className="bg-white text-slate-900 rounded-2xl p-6 shadow-2xl">
                 <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-4">
-                  <h3 className="font-bold text-xl">Pourquoi choisir Hydro Débouchage {selectedCity.name} ?</h3>
+                  <h3 className="font-bold text-xl">Pourquoi choisir Hydro Débouchage{isLandingPageMode ? ` ${selectedCity.name}` : ''} ?</h3>
                   <div className="flex text-yellow-400">
                     {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                   </div>
@@ -146,7 +146,7 @@ const HomePage = () => {
                     </div>
                     <div>
                       <h4 className="font-bold">Intervention Express</h4>
-                      <p className="text-sm text-slate-500">Arrivée rapide à {selectedCity.name} et environs.</p>
+                      <p className="text-sm text-slate-500">Arrivée rapide {isLandingPageMode ? `à ${selectedCity.name}` : 'partout en Wallonie'}.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -178,7 +178,7 @@ const HomePage = () => {
       <section id="services" className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Services de Débouchage à {selectedCity.name}</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Services de Débouchage {isLandingPageMode ? `à ${selectedCity.name}` : 'en Wallonie'}</h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
               Équipés des dernières technologies (caméra, haute pression), nos techniciens locaux résolvent tous vos problèmes sanitaires.
             </p>
@@ -226,7 +226,7 @@ const HomePage = () => {
         className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-transform transform hover:-translate-y-1"
       >
         <Phone className="w-6 h-6" />
-        Appeler maintenant – intervention immédiate à {selectedCity.name}
+        Appeler maintenant – intervention immédiate {isLandingPageMode ? `à ${selectedCity.name}` : 'en Wallonie'}
       </a>
       <p className="text-sm text-slate-500 mt-3">
         Diagnostic gratuit – aucun engagement
@@ -238,7 +238,7 @@ const HomePage = () => {
       <section className="bg-blue-900 text-white py-12">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">Une urgence à {selectedCity.name} ?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Une urgence {isLandingPageMode ? `à ${selectedCity.name}` : 'en Wallonie'} ?</h2>
             <p className="text-blue-200">Notre camion est probablement déjà dans votre quartier. Appelez maintenant.</p>
           </div>
           <a 
@@ -266,7 +266,7 @@ const HomePage = () => {
     
     {/* Titre */}
     <h2 className="text-3xl font-extrabold mb-10 text-slate-900 text-center">
-      Avis clients {selectedCity.name}
+      Avis clients 
     </h2>
 
     {/*  NOUVEAU : Photo cliente satisfaite */}
@@ -371,9 +371,9 @@ const HomePage = () => {
   <section className="py-16 bg-slate-50">
     <div className="container mx-auto px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
-          Débouchage professionnel à {selectedCity.name}
-        </h2>
+      <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+  Débouchage professionnel {isLandingPageMode ? `à ${selectedCity.name}` : 'en Wallonie'}
+</h2>
         
         <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
           <p className="text-slate-700 leading-relaxed mb-6">
@@ -418,7 +418,7 @@ const HomePage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-blue-600 rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
             <div className="p-10 md:w-1/2 bg-blue-700">
-              <h3 className="text-2xl font-bold mb-4">Devis gratuit {selectedCity.name}</h3>
+            <h3 className="text-2xl font-bold mb-4">Devis gratuit {isLandingPageMode ? selectedCity.name : 'Wallonie'}</h3>
               <p className="text-blue-100 mb-8">
                 Remplissez ce formulaire. Un technicien de la région de {selectedCity.name} vous rappelle dans les 5 minutes.
               </p>
@@ -510,8 +510,11 @@ const HomePage = () => {
                     disabled={formStatus === 'submitting'}
                     className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg transition-transform transform active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed mt-2"
                   >
-                    {formStatus === 'submitting' ? 'Envoi en cours...' : 'M\'appeler maintenant'}
+                    {formStatus === 'submitting' ? 'Envoi en cours...' : 'Être rappelé immédiatement'}
                   </button>
+                  <p className="text-xs text-slate-500 text-center mt-3">
+                    🔒 Données confidentielles – aucun spam
+                  </p>
                 </form>
               )}
             </div>
