@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
 import { COMPANY_PHONE } from '../constants';
 
 const Footer = () => {
@@ -10,8 +10,16 @@ const Footer = () => {
         <div>
           <h4 className="text-white font-bold text-lg mb-4">Hydro Débouchage Wallonie</h4>
           <p className="mb-4">Votre partenaire local de confiance pour tous travaux d&apos;assainissement et de débouchage.</p>
-          <div className="flex items-center gap-2 text-white">
-            <Phone className="w-4 h-4" /> {COMPANY_PHONE}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-white">
+              <Phone className="w-4 h-4" /> {COMPANY_PHONE}
+            </div>
+            <div className="flex items-center gap-2 text-white">
+              <Mail className="w-4 h-4" /> 
+              <a href="mailto:info@hydrodebouchage.be" className="hover:text-blue-400 transition-colors">
+                info@hydrodebouchage.be
+              </a>
+            </div>
           </div>
         </div>
         
@@ -21,7 +29,8 @@ const Footer = () => {
             <li><Link to="/#services" className="hover:text-white">Débouchage WC</Link></li>
             <li><Link to="/#services" className="hover:text-white">Curage égouts</Link></li>
             <li><Link to="/#services" className="hover:text-white">Inspection caméra</Link></li>
-            <li><Link to="/#services" className="hover:text-white">Vidange fosse septique</Link></li>
+            <li><Link to="/#services" className="hover:text-white">Égouts & Canalisations</Link></li>
+            <li><Link to="/#services" className="hover:text-white">Évier & Lavabo</Link></li>
           </ul>
         </div>
         
