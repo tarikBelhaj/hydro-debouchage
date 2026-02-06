@@ -17,10 +17,11 @@ export interface City {
   name: string;
   zip: string;
   region: string;
+  province: string;
   neighborhoods?: string[];
   agentName?: string;
-  localDescription?: string;  // 🔥 NOUVEAU
-  avgResponseTime?: string;   // 🔥 NOUVEAU
+  localDescription?: string;
+  avgResponseTime?: string;
 }
 
 export enum ChatSender {
