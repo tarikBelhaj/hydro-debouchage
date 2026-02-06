@@ -21,7 +21,6 @@ const CityPage = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Trouver la ville depuis l'URL
   useEffect(() => {
     const foundCity = CITIES.find(
       c => c.name.toLowerCase().replace(/[éèê]/g, 'e') === cityName?.toLowerCase().replace(/[éèê]/g, 'e')
@@ -31,12 +30,10 @@ const CityPage = () => {
       setSelectedCity(foundCity);
       document.title = `Débouchage ${foundCity.name} - Intervention Urgente 24/7 | Hydro Débouchage`;
     } else {
-      // Si ville non trouvée, rediriger vers l'accueil
       window.location.href = '/';
     }
   }, [cityName]);
 
-  // Gestion du scroll vers sections
   useEffect(() => {
     if (location.hash) {
       const el = document.querySelector(location.hash);
@@ -50,12 +47,10 @@ const CityPage = () => {
     }
   }, [location]);
 
-  // Initialiser EmailJS
   useEffect(() => {
     emailjs.init('0bUrBm2nXDsBPxsGc');
   }, []);
 
-  // Handle Contact Form Submit
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
@@ -77,7 +72,6 @@ const CityPage = () => {
     });
   };
 
-  // Trier les témoignages pour la ville
   const sortedTestimonials = [...TESTIMONIALS].sort((a, b) => {
     if (a.location === selectedCity.name) return -1;
     if (b.location === selectedCity.name) return 1;
@@ -92,7 +86,6 @@ const CityPage = () => {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500 opacity-10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          {/* Breadcrumb */}
           <div className="mb-6 text-sm text-blue-200">
             <Link to="/" className="hover:text-white">Accueil</Link>
             <span className="mx-2">/</span>
@@ -184,8 +177,52 @@ const CityPage = () => {
         </div>
       </section>
 
+      {/* QUARTIERS SECTION - DÉPLACÉE ICI */}
+      {selectedCity.neighborhoods && (
+        <section className="py-20 bg-slate-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              {/* TEXTE EN HAUT */}
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+                  Intervention dans tous les quartiers de {selectedCity.name}
+                </h2>
+                <p className="text-slate-600 text-lg mb-8">
+                  Notre équipe locale intervient rapidement partout à {selectedCity.name}
+                </p>
+                <div className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto mb-12">
+                  {selectedCity.neighborhoods.map((hood: string) => (
+                    <span key={hood} className="bg-blue-50 text-blue-700 text-sm font-medium px-4 py-2 rounded-full border border-blue-200">
+                      {hood}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* DEUX IMAGES CÔTE À CÔTE */}
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="h-full">
+                  <img 
+                    src="/images/Debouchage-sous-terrain.png" 
+                    alt="Intervention débouchage souterrain"
+                    className="w-full h-full object-cover rounded-2xl shadow-lg"
+                  />
+                </div>
+                <div className="h-full">
+                  <img 
+                    src="/images/Camions-en-ville.png" 
+                    alt="Camions intervention en ville"
+                    className="w-full h-full object-cover rounded-2xl shadow-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* SERVICES GRID */}
-      <section id="services" className="py-20 bg-slate-50">
+      <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
@@ -215,29 +252,6 @@ const CityPage = () => {
         </div>
       </section>
 
-      {/* QUARTIERS SECTION */}
-      {selectedCity.neighborhoods && (
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-                Intervention dans tous les quartiers de {selectedCity.name}
-              </h2>
-              <p className="text-slate-600 max-w-2xl mx-auto">
-                Notre équipe locale intervient rapidement partout à {selectedCity.name}
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
-              {selectedCity.neighborhoods.map((hood: string) => (
-                <span key={hood} className="bg-blue-50 text-blue-700 text-sm font-medium px-4 py-2 rounded-full border border-blue-200">
-                  {hood}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* CTA STRIP */}
       <section className="bg-blue-900 text-white py-12">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
@@ -260,7 +274,6 @@ const CityPage = () => {
       {/* AVIS */}
       <section id="avis" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          {/* 🔥 NOUVEAU : Résumé avis */}
           <div className="text-center mb-6">
             <p className="text-slate-600 text-lg flex items-center justify-center gap-2">
               <span className="text-yellow-400 text-2xl">⭐⭐⭐⭐⭐</span>
@@ -270,12 +283,10 @@ const CityPage = () => {
             </p>
           </div>
           
-          {/* Titre */}
           <h2 className="text-3xl font-extrabold mb-10 text-slate-900 text-center">
             Avis clients {selectedCity.name}
           </h2>
 
-          {/* 🔥 NOUVEAU : Photo cliente satisfaite */}
           <div className="max-w-5xl mx-auto mb-16">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img 
@@ -299,7 +310,6 @@ const CityPage = () => {
             </div>
           </div>
 
-          {/* Grille d'avis */}
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {sortedTestimonials.slice(0, 3).map((t) => (
               <div key={t.id} className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
@@ -320,52 +330,53 @@ const CityPage = () => {
           </div>
         </div>
       </section>
+
       {/* BLOC SEO LOCAL */}
-{selectedCity.localDescription && (
-  <section className="py-16 bg-white">
-    <div className="container mx-auto px-4">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
-          Débouchage professionnel à {selectedCity.name}
-        </h2>
-        
-        <div className="bg-slate-50 rounded-2xl p-8 shadow-sm border border-slate-200">
-          <p className="text-slate-700 leading-relaxed mb-6">
-            {selectedCity.localDescription}
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-200">
-            <div>
-              <div className="text-sm text-slate-500 mb-1">Ville</div>
-              <div className="font-bold text-slate-900">{selectedCity.name}</div>
-            </div>
-            <div>
-              <div className="text-sm text-slate-500 mb-1">Code postal</div>
-              <div className="font-bold text-slate-900">{selectedCity.zip}</div>
-            </div>
-            <div>
-              <div className="text-sm text-slate-500 mb-1">Délai moyen</div>
-              <div className="font-bold text-slate-900">{selectedCity.avgResponseTime}</div>
-            </div>
-          </div>
-          
-          {selectedCity.neighborhoods && selectedCity.neighborhoods.length > 0 && (
-            <div className="mt-6 pt-6 border-t border-slate-200">
-              <div className="text-sm text-slate-500 mb-3">Quartiers couverts</div>
-              <div className="flex flex-wrap gap-2">
-                {selectedCity.neighborhoods.map((hood) => (
-                  <span key={hood} className="bg-blue-50 text-blue-700 text-sm px-3 py-1 rounded-full">
-                    {hood}
-                  </span>
-                ))}
+      {selectedCity.localDescription && (
+        <section className="py-16 bg-slate-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+                Débouchage professionnel à {selectedCity.name}
+              </h2>
+              
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+                <p className="text-slate-700 leading-relaxed mb-6">
+                  {selectedCity.localDescription}
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-200">
+                  <div>
+                    <div className="text-sm text-slate-500 mb-1">Ville</div>
+                    <div className="font-bold text-slate-900">{selectedCity.name}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-slate-500 mb-1">Code postal</div>
+                    <div className="font-bold text-slate-900">{selectedCity.zip}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-slate-500 mb-1">Délai moyen</div>
+                    <div className="font-bold text-slate-900">{selectedCity.avgResponseTime}</div>
+                  </div>
+                </div>
+                
+                {selectedCity.neighborhoods && selectedCity.neighborhoods.length > 0 && (
+                  <div className="mt-6 pt-6 border-t border-slate-200">
+                    <div className="text-sm text-slate-500 mb-3">Quartiers couverts</div>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedCity.neighborhoods.map((hood) => (
+                        <span key={hood} className="bg-blue-50 text-blue-700 text-sm px-3 py-1 rounded-full">
+                          {hood}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
-          )}
-        </div>
-      </div>
-    </div>
-  </section>
-)}
+          </div>
+        </section>
+      )}
 
       {/* CONTACT FORM */}
       <section id="contact" className="py-20 bg-slate-900 text-white relative">
@@ -459,15 +470,15 @@ const CityPage = () => {
                     </select>
                   </div>
                   <button 
-  type="submit" 
-  disabled={formStatus === 'submitting'}
-  className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg transition-transform transform active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
->
-  {formStatus === 'submitting' ? 'Envoi en cours...' : 'Être rappelé immédiatement'}
-</button>
-<p className="text-xs text-slate-500 text-center mt-3">
-  🔒 Données confidentielles – aucun spam
-</p>
+                    type="submit" 
+                    disabled={formStatus === 'submitting'}
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg transition-transform transform active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {formStatus === 'submitting' ? 'Envoi en cours...' : 'Être rappelé immédiatement'}
+                  </button>
+                  <p className="text-xs text-slate-500 text-center mt-3">
+                    Données confidentielles – aucun spam
+                  </p>
                 </form>
               )}
             </div>
