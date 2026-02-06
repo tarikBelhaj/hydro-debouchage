@@ -199,22 +199,13 @@ const CityPage = () => {
                 </div>
               </div>
 
-              {/* DEUX IMAGES CÔTE À CÔTE */}
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="h-full">
-                  <img 
-                    src="/images/Debouchage-sous-terrain.png" 
-                    alt="Intervention débouchage souterrain"
-                    className="w-full h-full object-cover rounded-2xl shadow-lg"
-                  />
-                </div>
-                <div className="h-full">
-                  <img 
-                    src="/images/Camions-en-ville.png" 
-                    alt="Camions intervention en ville"
-                    className="w-full h-full object-cover rounded-2xl shadow-lg"
-                  />
-                </div>
+              {/* IMAGE CAMIONS EN VILLE */}
+              <div className="max-w-4xl mx-auto">
+                <img 
+                  src="/images/Camions-en-ville.png" 
+                  alt="Camions intervention en ville"
+                  className="w-full h-auto rounded-2xl shadow-lg"
+                />
               </div>
             </div>
           </div>
@@ -224,30 +215,46 @@ const CityPage = () => {
       {/* SERVICES GRID */}
       <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-              Services de Débouchage à {selectedCity.name}
-            </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              Intervention rapide dans tout {selectedCity.name} ({selectedCity.zip}) et ses quartiers. 
-              Équipement professionnel haute pression et caméra d'inspection.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((service) => (
-              <div key={service.id} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow border border-gray-100 group">
-                <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                  <CheckCircle2 className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-slate-900">{service.title}</h3>
-                <p className="text-slate-600 leading-relaxed mb-4">{service.description}</p>
-                <p className="text-sm text-blue-600 font-semibold">Disponible à {selectedCity.name}</p>
-                <a href="#contact" className="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 mt-2">
-                  Demander un devis <ArrowRight className="w-4 h-4 ml-1" />
-                </a>
+          <div className="max-w-6xl mx-auto">
+            {/* IMAGE + TEXTE */}
+            <div className="grid md:grid-cols-5 gap-12 items-center mb-16">
+              {/* TEXTE - Order 1 sur mobile, Order 2 sur desktop */}
+              <div className="md:col-span-3 order-1 md:order-2 text-center md:text-left">
+                <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+                  Services de Débouchage à {selectedCity.name}
+                </h2>
+                <p className="text-slate-600 text-lg">
+                  Intervention rapide dans tout {selectedCity.name} ({selectedCity.zip}) et ses quartiers. 
+                  Équipement professionnel haute pression et caméra d'inspection.
+                </p>
               </div>
-            ))}
+              
+              {/* IMAGE - Order 2 sur mobile, Order 1 sur desktop */}
+              <div className="md:col-span-2 order-2 md:order-1">
+                <img 
+                  src="/images/Debouchage-sous-terrain.png" 
+                  alt="Intervention débouchage souterrain"
+                  className="w-full h-auto rounded-2xl shadow-lg"
+                />
+              </div>
+            </div>
+
+            {/* GRILLE DES SERVICES */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {SERVICES.map((service) => (
+                <div key={service.id} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow border border-gray-100 group">
+                  <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <CheckCircle2 className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-slate-900">{service.title}</h3>
+                  <p className="text-slate-600 leading-relaxed mb-4">{service.description}</p>
+                  <p className="text-sm text-blue-600 font-semibold">Disponible à {selectedCity.name}</p>
+                  <a href="#contact" className="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 mt-2">
+                    Demander un devis <ArrowRight className="w-4 h-4 ml-1" />
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -294,16 +301,16 @@ const CityPage = () => {
                 alt="Cliente satisfaite avec technicien Hydro Débouchage"
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 to-transparent p-8">
-                <div className="flex items-center gap-4 mb-3">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent p-4 md:p-6">
+                <div className="flex items-center gap-2 mb-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-white text-xl md:text-2xl font-bold italic mb-2">
-                  &quot;Service impeccable ! Le technicien était très professionnel et a réglé mon problème rapidement.&quot;
+                <p className="text-white text-sm md:text-base font-medium italic mb-1">
+                  &quot;Service impeccable ! Le technicien était très professionnel.&quot;
                 </p>
-                <p className="text-slate-300">
+                <p className="text-slate-300 text-xs md:text-sm">
                   — Cliente satisfaite, {selectedCity.name}
                 </p>
               </div>
